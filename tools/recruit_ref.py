@@ -114,11 +114,11 @@ def find_most():
         print("The number of related references is: ", common[0][1])
         pos = (int(ref_name)+1)*2-2
         
-        with open('data.fa') as R:
+        with open('new_data.fa') as R:
             database = R.readlines()
             R.close()
             
-            ref = database[pos]+database[pos+1]            
+            ref = database[pos]+database[pos+1]
             return ref
             
             
@@ -164,8 +164,8 @@ def create_new_database():
     os.system("rm new_data.fa")
     os.system("mv temp.fa new_data.fa")
 
-def create_reads_first(stride_of_reads, length_of_reads):
-    with open("data.fa") as file:
+def create_reads_first(filename, stride_of_reads, length_of_reads):
+    with open(filename) as file:
         database = file.readlines()
         file.close()
 
@@ -228,7 +228,7 @@ Help_message = """
    
   python3 recruit_ref.py [options] -n <reference number> -s <strides> -l <length>
    
-======================== PARAMETERS ==========================
+======================== PARAMETERS ======================
    
   -h   print out usage information
   -n   total number of reference you want to recruit from the dataset 
@@ -236,9 +236,15 @@ Help_message = """
   -l   length of the reads that you want to use to creat reads from the dataset
   -t   number of threads that you want to use
    
-======================== EXAMPLE =========================
+======================== OUTPUT ===========================
+
+   The output of RRP are as follow:
+       data_remain.fa              references that remained.
+       recruited_reference    folder of references recruited.
+
+======================== EXAMPLE ==========================
    
-  python3 recruit_ref.py -n 10 -s 10 -l 100
+  python3 recruit_ref.py -n 10 -s 10 -l 100 -f amo_database.fa
 
 """
 
@@ -256,7 +262,7 @@ def main():
     elif params[1] == '-h':
         print(Help_message)
         return 0
-    elif len(params) < 7:
+    elif len(params) < 9:
         print(Help_message)
         print("Error: Missing parameter!")
         return 0
@@ -274,14 +280,17 @@ def main():
             elif params[i] == '-t':
                 threads = params[i+1]
                 
+            elif params[i] == '-f':
+                filename = params[i+1]
+                
             else:
                 print(Help_message)
                 print("Error: Wrong parameters!")
                 return 0
     
     print("Creating reads...")
-    create_reads_first(stride_of_reads, length_of_reads)
-    os.system("mkdir Idx | mkdir Ref | mkdir recruited | cp data.fa new_data.fa")
+    create_reads_first(filename, stride_of_reads, length_of_reads)
+    os.system("mkdir Idx | mkdir Ref | mkdir recruited | cp "+filename+" new_data.fa")
     
     for i in range(num):
         print("Finding the " + str(i+1) + "th reference.")
@@ -309,7 +318,7 @@ def main():
         reference = find_most()
         os.system("rm read_gene")
         file_name = "reference"+str(i+1)+".fa"
-        with open("recruited/"+file_name, 'w') as file:
+        with open("recruited_reference/"+file_name, 'w') as file:
             file.write(reference)
             print("new reference gene saved!")
             file.close()
