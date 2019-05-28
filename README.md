@@ -43,7 +43,7 @@ cp ../script/set_env.sh my_env.sh
 ../bin/main.sh my_env.sh "rrp TarGene SPAdes"
 ```
 
-You can also run the three steps separately, or search multiple genes in parallel.
+You can also run the three steps separately, or choose the program you want to run.
 ```
 
 ../bin/main.sh my_env.sh "rrp"
@@ -51,4 +51,4 @@ You can also run the three steps separately, or search multiple genes in paralle
 ../bin/main.sh my_env.sh "SPAdes"
 
 ```
-Note if you want to rerun the program, you need to manually delete the files in the output directory. 
+Note if you want to rerun the program, you need to manually delete the corresponding files in the output directory. 
