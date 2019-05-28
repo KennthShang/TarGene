@@ -23,10 +23,12 @@ If you would like to install all the programs without using conda, please still 
 To download the source code:   
 git clone https://github.com/KennthShang/TarGene.git
 
-1. Install Overlap extension module   
+1. Install TarGene module   
 This program requries the supports of C++11.   
-cd TarGene
-make    
+```
+  cd TarGene
+  make    
+```
 
 ## Quickstart using shell script
 Use testdata as an example. Make a copy of bin/xander_setenv.sh and change path variables to be the absolute paths in your system. For your samples, you may also need to adjust the Parameters used in TarGene
