@@ -44,9 +44,11 @@ cp ../script/set_env.sh my_env.sh
 ```
 
 You can also run the three steps separately, or search multiple genes in parallel.
-'''
+```
+
 ../bin/main.sh my_env.sh "rrp"
 ../bin/main.sh my_env.sh "TarGene"
 ../bin/main.sh my_env.sh "SPAdes"
-'''
+
+```
 Note if you want to rerun the program, you need to manually delete the files in the output directory. 
