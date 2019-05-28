@@ -8,6 +8,12 @@ To use TarGene, you need to have two types of data. (1) read set, such as metage
 We provide two methods for installing TarGene. You can directly install these tools following the instructions below. In addition, we also provide packaged TarGene via Anaconda, which makes the installation more straightforward. 
 
 
+## Required Dependencies
+1. [Samtools](http://samtools.sourceforge.net/)
+2. [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+3. [SPAdes](http://cab.spbu.ru/software/spades/)
+
+
 ## Installing via conda 
 Noted that all the packages can be found on anaconda.cloud, which means you can easily install them by using conda. You can follow the [Guidance](https://github.com/KennthShang/TarGene/edit/master/README.md) to install step by step. 
 
@@ -22,8 +28,23 @@ This program requries the supports of C++11.
 cd TarGene
 make    
 
-## Preprocessing
+## Quickstart using shell script
+Use testdata as an example. Make a copy of bin/xander_setenv.sh and change path variables to be the absolute paths in your system. For your samples, you may also need to adjust the Parameters used in TarGene
 
+The following example commands will attempt to run all the three steps "rrp", "TarGene" and "SPAdes" for the genes Hydroxylamine oxidoreductase (hao) and Ammonia monooxygenase subunit A (amoA) specified in the input param. It creates an assembly output directory "recruit50" for overlap cutoff of 50. It saves all the output in the output directory.
 
-## Usage   
+```
+bash
+cd testdata
+cp ../script/set_env.sh my_env.sh
+# edit the parameters in my_env.sh 
+../bin/main.sh my_env.sh "rrp TarGene SPAdes"
+```
 
+You can also run the three steps separately, or search multiple genes in parallel.
+'''
+../bin/main.sh my_env.sh "rrp"
+../bin/main.sh my_env.sh "TarGene"
+../bin/main.sh my_env.sh "SPAdes"
+'''
+Note if you want to rerun the program, you need to manually delete the files in the output directory. 
