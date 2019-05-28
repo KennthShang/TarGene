@@ -8,7 +8,7 @@ To use TarGene, you need to have two types of data. (1) read set, such as metage
 We provide two methods for installing TarGene. You can directly install these tools following the instructions below. In addition, we also provide packaged TarGene via Anaconda, which makes the installation more straightforward. 
 
 
-## Installing via conda (recommended if you want to install both TAR-VIR and PEHaplo)
+## Installing via conda 
 Noted that all the packages can be found on anaconda.cloud, which means you can easily install them by using conda. You can follow the [Guidance](https://github.com/KennthShang/TarGene/edit/master/README.md) to install step by step. 
 
 ## Installation without using conda
