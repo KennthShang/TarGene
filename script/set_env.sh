@@ -41,6 +41,6 @@ K_MERS=11,17,33   # K-mers number
 MAXIMUN_MEM=200  # Maximum memory will be used in SPAdes 
 OUTPUT_FOLDER=SPAdes.output
 
-NAME=TarGene_${OVERLAP}
+NAME=TarGene_${OVERLAP}_overlap
 
 #### end of configuration
