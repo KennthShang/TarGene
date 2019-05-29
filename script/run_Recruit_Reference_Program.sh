@@ -9,7 +9,8 @@ set -x
 source $1
 #### end of configuration
 
-
+cd ${WORKDIR}/${NAME}
+mkdir -p ${WORKDIR}/RRP || { echo "mkdir -p ${WORKDIR}/RRP failed"; exit 1;}
 ## build bloom filter
 if [ -f "recruit_ref.fa" ]; then
    echo "File recruit_ref.fa exists, SKIPPING RRP (manually delete if you want to rerun)" 
