@@ -17,7 +17,6 @@ source $ENVFILE
 #### end of configuration   
 
 mkdir -p ${WORKDIR}/${NAME} || { echo "mkdir -p ${WORKDIR}/${NAME} failed"; exit 1;}
-cd ${WORKDIR}/${NAME}
 
 ## Running RRP
 if [[ " ${tasks[*]} " == *"rrp"* ]]; then
