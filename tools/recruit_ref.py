@@ -296,7 +296,7 @@ def main():
     
     print("Creating reads...")
     create_reads_first(filename, stride_of_reads, length_of_reads)
-    os.system("mkdir Idx | mkdir Ref | mkdir recruited | cp "+filename+" new_data.fa")
+    os.system("mkdir Idx | mkdir Ref | mkdir recruited_reference | cp "+filename+" new_data.fa")
     
     for i in range(num):
         print("Finding the " + str(i+1) + "th reference.")
@@ -331,7 +331,7 @@ def main():
             
         print("================== Creating new sub-dataset ================")
         os.system("rm LogFile")
-        os.system("bowtie2-build -f recruited/"+ file_name +" Ref/IDX >LogFile" )
+        os.system("bowtie2-build -f recruited_reference/"+ file_name +" Ref/IDX >LogFile" )
         os.system("bowtie2 -x Ref/IDX -p "+ threads +" -f reads.fa -S result.sam")
         os.system("samtools view -F 4 result.sam >mapped.sam")
         os.system("rm Ref/* | rm result.sam | rm reads.fa")
