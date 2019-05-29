@@ -22,17 +22,17 @@ cd ${WORKDIR}/${NAME}
 ## build bloom filter, this step takes time, not multithreaded yet, wait for future improvement
 ## only once for each dataset at given kmer length
 if [[ " ${tasks[*]} " == *"rrp"* ]]; then
-    $BASEDIR/script/run_Recruit_Reference_Program.sh $ENVFILE || { exit 1; }
+    bash $BASEDIR/script/run_Recruit_Reference_Program.sh $ENVFILE || { exit 1; }
 fi
 
 ## find starting kmers, multiple genes should be run together to save time, has multithread option
 if [[ " ${tasks[*]} " == *"TarGene"* ]]; then
-    $BASEDIR/script/run_TarGene.sh $ENVFILE || { exit 1; }
+    bash $BASEDIR/script/run_TarGene.sh $ENVFILE || { exit 1; }
 fi
 
 ## search contigs and post-assembly processing
 ## can run in parallel 
 
 if [[ " ${tasks[*]} " == *"SPAdes"* ]]; then
-    $BASEDIR/rscript/run_SPAdes.sh $ENVFILE|| { exit 1; }
+    bash $BASEDIR/rscript/run_SPAdes.sh $ENVFILE|| { exit 1; }
 fi
