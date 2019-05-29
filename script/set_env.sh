@@ -10,7 +10,7 @@
 ###################################################
 
 ## THIS SECTION MUST BE MODIFIED FOR YOUR FILE SYSTEM. MUST BE ABSOLUTE PATH
-FASTA_FILE_POS=/mnt/gs18/scratch/users/yannisun/AMY/Preprocess/L8_dataset1/L8_dataset1.fa 
+FASTA_FILE_POS=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/reads.fa
 BASEDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene
 WORKDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data 
 REFERENCE_DATABASE=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa 
@@ -36,7 +36,7 @@ OVERLAP=50 # Overlap cutoff for TarGene
 
 
 ## SPAdes Parameters
-K_MERS=21,33,55,77,111   # K-mers number 
+K_MERS=11,17,33   # K-mers number 
 MAXIMUN_MEM=200  # Maximum memory will be used in SPAdes 
 OUTPUT_FOLDER=SPAdes.output
 
