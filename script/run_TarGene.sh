@@ -24,7 +24,7 @@ else
       bowtie2-build -f $REF_POS ${REF_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
    fi
    
-   bowtie2 -x ${REF_DIR}/IDX -f $FASTA_FILE -p $THREAD_NUM -S $SAM_FILE || { echo "Bowtie2 failed"; exit 1;}
+   bowtie2 -x ${REF_DIR}/IDX -f $FASTA_FILE_POS -p $THREAD_NUM -S $SAM_FILE || { echo "Bowtie2 failed"; exit 1;}
    samtools view -F 4 -h $SAM_FILE >mapped.sam || { echo "Samtools failed"; exit 1;}
    mkdir $INDEX_DIR || { echo "mkdir $INDEX_DIR failed"; exit 1;}
    $BASEDIR/build -f $FASTA_FILE -o ${INDEX_DIR}/IDX || { echo "build function failed"; exit 1;}
