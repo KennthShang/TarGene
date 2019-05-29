@@ -11,10 +11,10 @@ source $1
 flag=$RRP_FLAG
 #### end of configuration
 
-mkdir ${WORKDIR}/recruit_reads || { echo "mkdir -p ${WORKDIR}/recruit_reads failed"; exit 1;}
-cd ${WORKDIR}/recruit_reads
+mkdir ${WORKDIR}/${NAME}/recruit_reads || { echo "mkdir -p ${WORKDIR}/recruit_reads failed"; exit 1;}
+cd ${WORKDIR}/${NAME}/recruit_reads
 
-## build bloom filter
+## Running TarGene
 if [ -f "recruit.fa" ]; then
    echo "File recruit.fa exists, SKIPPING TarGene (manually delete if you want to rerun)"
 else
