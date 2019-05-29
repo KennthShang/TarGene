@@ -39,15 +39,15 @@ The following example commands will attempt to run all the three steps "rrp", "T
 cd testdata
 cp ../script/set_env.sh my_env.sh
 # edit the parameters in my_env.sh 
-bash ../bin/main.sh my_env.sh "rrp TarGene SPAdes"
+bash ../script/main.sh my_env.sh "rrp TarGene SPAdes"
 ```
 
 You can also run the three steps separately, or choose the program you want to run.
 ```
 
-bash ../bin/main.sh my_env.sh "rrp"
-bash ../bin/main.sh my_env.sh "TarGene"
-bash ../bin/main.sh my_env.sh "SPAdes"
+bash ../script/main.sh my_env.sh "rrp"
+bash ../script/main.sh my_env.sh "TarGene"
+bash ../script/main.sh my_env.sh "SPAdes"
 
 ```
 Note if you want to rerun the program, you need to manually delete the corresponding files in the output directory. 
