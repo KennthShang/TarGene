@@ -2,12 +2,11 @@
 
 ## This is the main script to run TarGene
 
-if [ $# -ne 3 ]; then
-        echo "Requires two inputs : /path/xander_setenv.sh tasks"
-        echo "  xander_setenv.sh is a file containing the parameter settings, requires absolute path. See example RDPTools/Xander_assembler/bin/xander_setenv.sh"
-        echo '  tasks should contain one or more of the following processing steps with quotes around: build find search"'
-        echo '  genes should contain one or more genes to process with quotes around'
-        echo 'Example command: /path/xander_setenv.sh "build find search" "nifH nirK rplB"'
+if [ $# -ne 2 ]; then
+        echo "Requires two inputs : /path/set_env.sh tasks" 
+        echo "  set_env.sh is a file containing the parameter settings, requires absolute path. See example TarGene/script/set_env.sh" 
+        echo '  tasks should contain one or more of the following processing steps with quotes around: rrp, TarGene, SPAdes"'  
+        echo 'Example command: bash ../script/main.sh set_env.sh "rrp, TarGene, SPAdes"' 
         exit 1
 fi
 
