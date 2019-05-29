@@ -18,7 +18,7 @@ else
    echo "### Build bloom filter"
    mkdir $INDEX_DIR { echo "mkdir ${INDEX_DIR} failed"; exit 1;}
    if [$RRP_FLAG == 1]; then
-      bowtie2-build -f recruit_ref.fa ${INDEX_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
+      bowtie2-build -f /mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/recruit_ref.fa ${INDEX_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
    else
       bowtie2-build -f $REF_POS ${INDEX_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
    fi
