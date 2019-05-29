@@ -36,7 +36,7 @@ def create_reads(stride_of_reads, length_of_reads):
             reads_seq.append(gene[-read_len:])
             reads_title.append(title+'-'+str(counter))
 
-    with open("reads.fa", 'w') as file:
+    with open("fake_reads.fa", 'w') as file:
         for i in range(len(reads_seq)):
             file.write(reads_title[i]+'\n')
             file.write(reads_seq[i]+'\n')
@@ -200,7 +200,7 @@ def create_reads_first(filename, stride_of_reads, length_of_reads):
     
     print("Number of reads created:", len(reads_seq))
     
-    with open("reads.fa", 'w') as file:
+    with open("fake_reads.fa", 'w') as file:
         for i in range(len(reads_seq)):
             file.write(reads_title[i]+'\n')
             file.write(reads_seq[i]+'\n')
@@ -331,7 +331,7 @@ def main():
             print("Creating reads...")
             create_reads(stride_of_reads, length_of_reads)
         
-        os.system("bowtie2 -x Idx/IDX -p "+ threads +" -f reads.fa -S result.sam")
+        os.system("bowtie2 -x Idx/IDX -p "+ threads +" -f fake_reads.fa -S result.sam")
         os.system("samtools view -F 4 result.sam >mapped.sam")
         os.system("rm Idx/* | rm result.sam")
         print("Reads mapping complete!")
@@ -364,9 +364,9 @@ def main():
         print("================== Creating new sub-dataset ================")
         os.system("rm LogFile")
         os.system("bowtie2-build -f recruited_reference/"+ file_name +" Ref/IDX >LogFile" )
-        os.system("bowtie2 -x Ref/IDX -p "+ threads +" -f reads.fa -S result.sam")
+        os.system("bowtie2 -x Ref/IDX -p "+ threads +" -f fake_reads.fa -S result.sam")
         os.system("samtools view -F 4 result.sam >mapped.sam")
-        os.system("rm Ref/* | rm result.sam | rm reads.fa")
+        os.system("rm Ref/* | rm result.sam | rm fake_reads.fa")
         create_new_database(ref_title)
         os.system("rm mapped.sam")
         print("new sub-dataset created!")
