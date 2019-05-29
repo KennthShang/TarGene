@@ -8,6 +8,7 @@ set -x
 
 #### start of configuration, xander_setenv.sh or qsub_xander_setenv.sh
 source $1
+flag=$RRP_FLAG
 #### end of configuration
 
 
@@ -17,7 +18,7 @@ if [ -f "recruit.fa" ]; then
 else
    echo "### Build bloom filter"
    mkdir $REF_DIR || { echo "mkdir ${REF_DIR} failed"; exit 1;}
-   if [$RRP_FLAG == 1]; then
+   if [[" ${flag[*]} " == *"1"*]]; then
       bowtie2-build -f ${WORKDIR}/recruit_ref.fa ${REF_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
    else
       bowtie2-build -f $REF_POS ${REF_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
