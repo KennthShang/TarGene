@@ -16,7 +16,7 @@ if [ -f "recruit.fa" ]; then
    echo "File recruit.fa exists, SKIPPING TarGene (manually delete if you want to rerun)"
 else
    echo "### Build bloom filter"
-   mkdir $INDEX_DIR { echo "mkdir ${INDEX_DIR} failed"; exit 1;}
+   mkdir $INDEX_DIR || { echo "mkdir ${INDEX_DIR} failed"; exit 1;}
    if [$RRP_FLAG == 1]; then
       bowtie2-build -f /mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/recruit_ref.fa ${INDEX_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
    else
