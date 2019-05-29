@@ -22,7 +22,7 @@ REFERENCE_DATABASE=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_da
 THREAD_NUM=8 # number of threads you want to use
 
 ## Recruit Reference Program Parameters
-RRP_FLAG=1  # Whether you want to run RRP or not(1 for YES, 0 for NO)
+RRP_FLAG=false  # Whether you want to run RRP or not(1 for YES, 0 for NO)
 NUM_RECRUIT=200  # Number of threads that you want to use
 STRIDE=1  # Strides for creating reads from the dataset
 LENGTH=100
