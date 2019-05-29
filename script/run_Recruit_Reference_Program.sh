@@ -10,8 +10,8 @@ source $1
 #### end of configuration
 
 cd ${WORKDIR}/${NAME}
-mkdir -p ${WORKDIR}/RRP || { echo "mkdir -p ${WORKDIR}/RRP failed"; exit 1;}
-cd RRP
+mkdir -p ${WORKDIR}/${NAME}/RRP || { echo "mkdir -p ${WORKDIR}/RRP failed"; exit 1;}
+cd ${WORKDIR}/${NAME}/RRP
 
 ## build bloom filter
 if [ -f "recruit_ref.fa" ]; then
