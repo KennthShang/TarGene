@@ -10,7 +10,7 @@ set -x
 source $1
 #### end of configuration
 if [ -f "recruit.fa" ]; then
-   perl $BASEDIR/tools/fasta_to_fastq.pl recruit.fa >recruit.fq { echo "convert fasta to fastq failed"; exit 1;}
+   perl $BASEDIR/tools/fasta_to_fastq.pl recruit.fa >recruit.fq || { echo "convert fasta to fastq failed"; exit 1;}
    spades.py -s recruit.fq -k $K_MERS -m $MAXIMUN_MEM --phred-offset 33 -t $THREAD_NUM -o $OUTPUT_FOLDER || { echo "SPAdes failed"; exit 1;}
    
 else
