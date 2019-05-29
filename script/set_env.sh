@@ -11,7 +11,7 @@
 
 ## THIS SECTION MUST BE MODIFIED FOR YOUR FILE SYSTEM. MUST BE ABSOLUTE PATH
 FASTA_FILE_POS=/mnt/gs18/scratch/users/yannisun/AMY/Preprocess/L8_dataset1/L8_dataset1.fa 
-BASEDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/ 
+BASEDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene
 WORKDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data 
 REFERENCE_DATABASE=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa 
 
