@@ -236,7 +236,7 @@ def rename(filename):
             else:
                 text = text + line[:-1]
         
-    with open("dataset.fa") as file:
+    with open("dataset.fa", 'w') as file:
         for i in range(len(Title)):
             file.write(Title[i]+'\n')
             file.write(Gene[i]+'\n')
