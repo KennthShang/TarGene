@@ -19,6 +19,7 @@ REFERENCE_DATABASE=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_da
 
 
 ## THIS SECTION MUST BE MODIFIED BASED ON THE INPUT DATASETS
+THREAD_NUM=8 # number of threads you want to use
 
 ## Recruit Reference Program Parameters
 RRP_FLAG=1  # Whether you want to run RRP or not(1 for YES, 0 for NO)
@@ -30,7 +31,7 @@ LENGTH=100
 SAM_FILE=result.sam # Name of the sam file (output of bowtie2)
 REF_DIR=Ref # Name of the reference_idx floder
 INDEX_DIR=Idx # Name of the data_idx floder
-K=10 # Number of partitions for DATASET Index
+K=8 # Number of partitions for DATASET Index
 OVERLAP=50 # Overlap cutoff for TarGene
 
 
