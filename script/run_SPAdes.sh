@@ -12,8 +12,8 @@ source $1
 cd ${WORKDIR}/${NAME}
 
 if [ -f "recruit.fa" ]; then
-   perl $BASEDIR/tools/fasta_to_fastq.pl recruit.fa >recruit.fq || { echo "convert fasta to fastq failed"; exit 1;}
-   spades.py -s recruit.fq -k $K_MERS -m $MAXIMUN_MEM --phred-offset 33 -t $THREAD_NUM -o $OUTPUT_FOLDER || { echo "SPAdes failed"; exit 1;}
+   perl $BASEDIR/tools/fasta_to_fastq.pl recruit_reads/recruit.fa >recruit_reads/recruit.fq || { echo "convert fasta to fastq failed"; exit 1;}
+   spades.py -s recruit_reads/recruit.fq -k $K_MERS -m $MAXIMUN_MEM --phred-offset 33 -t $THREAD_NUM -o $OUTPUT_FOLDER || { echo "SPAdes failed"; exit 1;}
    
 else
    echo "Please run TarGene first!"
