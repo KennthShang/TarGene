@@ -10,10 +10,10 @@
 ###################################################
 
 ## THIS SECTION MUST BE MODIFIED FOR YOUR FILE SYSTEM. MUST BE ABSOLUTE PATH
-FASTA_FILE_POS=L8_dataset1.fa
-BASEDIR=TarGene
-WORKDIR=
-REF_POS=amo.fa
+FASTA_FILE_POS=/mnt/gs18/scratch/users/yannisun/AMY/Preprocess/L8_dataset1/L8_dataset1.fa 
+BASEDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/ 
+WORKDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data 
+REFERENCE_DATABASE=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa 
 
 
 
@@ -22,22 +22,21 @@ REF_POS=amo.fa
 
 ## Recruit Reference Program Parameters
 RRP_FLAG=1  # Whether you want to run RRP or not(1 for YES, 0 for NO)
-REFERENCE_DATABASE=amo_database.fa
 NUM_RECRUIT=200  # Number of threads that you want to use
 STRIDE=1  # Strides for creating reads from the dataset
 LENGTH=100
 
 ## TarGene Parameters
-SAM_FILE= # Name of the sam file (output of bowtie2)
-REF_DIR=
-INDEX_DIR= 
-K = # Number of partitions for DATASET Index
-OVERLAP= # Overlap cutoff for TarGene
+SAM_FILE=result.sam # Name of the sam file (output of bowtie2)
+REF_DIR=Ref # Name of the reference_idx floder
+INDEX_DIR=Idx # Name of the data_idx floder
+K=10 # Number of partitions for DATASET Index
+OVERLAP=50 # Overlap cutoff for TarGene
 
 
 ## SPAdes Parameters
-K_MERS=11,17,33  # 
-MAXIMUN_MEM=200  # 
+K_MERS=21,33,55,77,111   # K-mers number 
+MAXIMUN_MEM=200  # Maximum memory will be used in SPAdes 
 OUTPUT_FOLDER=SPAdes.output
 
 
