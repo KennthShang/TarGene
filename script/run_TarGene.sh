@@ -27,6 +27,6 @@ else
    bowtie2 -x ${REF_DIR}/IDX -f $FASTA_FILE_POS -p $THREAD_NUM -S $SAM_FILE || { echo "Bowtie2 failed"; exit 1;}
    samtools view -F 4 -h $SAM_FILE >mapped.sam || { echo "Samtools failed"; exit 1;}
    mkdir $INDEX_DIR || { echo "mkdir $INDEX_DIR failed"; exit 1;}
-   $BASEDIR/build -f $FASTA_FILE -o ${INDEX_DIR}/IDX || { echo "build function failed"; exit 1;}
-   $BASEDIR/overlap -S mapped.sam -x ${INDEX_DIR}/IDX -f $FASTA_FILE -c $OVERLAP -k $K -p $THREAD_NUM -o recruit.fa || { echo "overlap function failed"; exit 1;}
+   $BASEDIR/build -f $FASTA_FILE_POS -o ${INDEX_DIR}/IDX || { echo "build function failed"; exit 1;}
+   $BASEDIR/overlap -S mapped.sam -x ${INDEX_DIR}/IDX -f $FASTA_FILE_POS -c $OVERLAP -k $K -p $THREAD_NUM -o recruit.fa || { echo "overlap function failed"; exit 1;}
 fi
