@@ -36,7 +36,7 @@ Use testdata as an example. Make a copy of bin/xander_setenv.sh and change path 
 The following example commands will attempt to run all the three steps "rrp", "TarGene" and "SPAdes" for the genes Hydroxylamine oxidoreductase (hao) and Ammonia monooxygenase subunit A (amoA) specified in the input param. It creates an assembly output directory "recruit50" for overlap cutoff of 50. It saves all the output in the output directory.
 
 ```
-cd testdata
+cd test_data
 cp ../script/set_env.sh my_env.sh
 # edit the parameters in my_env.sh 
 bash ../script/main.sh my_env.sh "rrp TarGene SPAdes"
