@@ -229,7 +229,8 @@ def rename(filename):
                     text=""
             else:
                 text = text + line[:-1]
-         Gene.append(text)
+                
+        Gene.append(text)
         
     with open("dataset.fa", 'w') as file:
         for i in range(len(Title)):
