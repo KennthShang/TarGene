@@ -131,7 +131,7 @@ def create_new_database(ref_title):
         file.close()
 
         similar_ref = []
-        similar.append()
+        similar_ref.append(str(ref_title))
         for line in samfile:
             tmp = line.split('\t')
             read_name = tmp[0]
