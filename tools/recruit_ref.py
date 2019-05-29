@@ -218,7 +218,7 @@ def rename(filename):
         database = file.readlines()
         file.close()
         text = ""
-        counter = 0
+        counter = 1
         Gene = []
         Title = []
         for line in database:
