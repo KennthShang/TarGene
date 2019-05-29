@@ -14,7 +14,7 @@ FASTA_FILE_POS=/mnt/gs18/scratch/users/yannisun/AMY/Preprocess/L8_dataset1/L8_da
 BASEDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene
 WORKDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data 
 REFERENCE_DATABASE=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa 
-
+REF_POS=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa 
 
 
 
