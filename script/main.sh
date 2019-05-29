@@ -32,5 +32,5 @@ fi
 ## Running SPAdes 
 
 if [[ " ${tasks[*]} " == *"SPAdes"* ]]; then
-    bash $BASEDIR/rscript/run_SPAdes.sh $ENVFILE|| { exit 1; }
+    bash $BASEDIR/script/run_SPAdes.sh $ENVFILE|| { exit 1; }
 fi
