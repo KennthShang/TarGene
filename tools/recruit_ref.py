@@ -7,14 +7,17 @@ def create_reads(stride_of_reads, length_of_reads):
     with open("new_data.fa") as file:
         database = file.readlines()
         file.close()
-
+        text = ""
         Gene = []
         Title = []
         for line in database:
             if line[0] == '>':
                 Title.append(line[:-1])
+                if text != "":
+                    Gene.append(text)
+                    text=""
             else:
-                Gene.append(line[:-1])
+                text = text + line[:-1]
 
         read_len = length_of_reads
         stride = stride_of_reads
@@ -168,14 +171,17 @@ def create_reads_first(filename, stride_of_reads, length_of_reads):
     with open(filename) as file:
         database = file.readlines()
         file.close()
-
+        text = ""
         Gene = []
         Title = []
         for line in database:
             if line[0] == '>':
                 Title.append(line[:-1])
+                if text != "":
+                    Gene.append(text)
+                    text=""
             else:
-                Gene.append(line[:-1])
+                text = text + line[:-1]
 
         read_len = length_of_reads
         stride = stride_of_reads
