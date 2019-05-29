@@ -351,6 +351,7 @@ def main():
             print("***NOTE***")
             print("ALL genes in the dataset have been recruited")
             os.system("rm -rf Ref/ Idx/ | mv new_data.fa data_remain.fa")
+            os.system("rm LogFile read_gene")
             return 0
             
         os.system("rm read_gene")
@@ -376,6 +377,7 @@ def main():
             print("***NOTE***")
             print("ALL genes in the dataset have been recruited")
             os.system("rm -rf Ref/ Idx/ | mv new_data.fa data_remain.fa")
+            os.system("rm LogFile")
             return 0
     os.system("rm -rf Ref/ Idx/ | mv new_data.fa data_remain.fa")
         
