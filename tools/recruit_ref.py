@@ -111,7 +111,7 @@ def find_most():
         ref_name = common[0][0]
         print("****NOTE****")
         print("The most valuable reference in this loop is: ", ref_name)
-        print("The number of related references is: ", common[0][1])
+        print("The number of related reads is: ", common[0][1])
         pos = (int(ref_name)+1)*2-2
         
         with open('dataset.fa') as R:
@@ -119,18 +119,19 @@ def find_most():
             R.close()
             
             ref = database[pos]+database[pos+1]
-            return ref
+            return ref, pos
             
             
         
     
 
-def create_new_database():
+def create_new_database(ref_title):
     with open("mapped.sam") as file:
         samfile = file.readlines()
         file.close()
 
         similar_ref = []
+        similar.append()
         for line in samfile:
             tmp = line.split('\t')
             read_name = tmp[0]
@@ -342,7 +343,7 @@ def main():
         capture()
         os.system("rm filter.sam")
         
-        reference = find_most()
+        reference, ref_title = find_most()
         os.system("rm read_gene")
         file_name = "reference"+str(i+1)+".fa"
         with open("recruited_reference/"+file_name, 'w') as file:
@@ -356,7 +357,7 @@ def main():
         os.system("bowtie2 -x Ref/IDX -p "+ threads +" -f reads.fa -S result.sam")
         os.system("samtools view -F 4 result.sam >mapped.sam")
         os.system("rm Ref/* | rm result.sam | rm reads.fa")
-        create_new_database()
+        create_new_database(ref_title)
         os.system("rm mapped.sam")
         print("new sub-dataset created!")
         os.system("rm LogFile")
