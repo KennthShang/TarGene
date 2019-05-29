@@ -218,7 +218,7 @@ def rename(filename):
         database = file.readlines()
         file.close()
         text = ""
-        counter = 1
+        counter = 0
         Gene = []
         Title = []
         for line in database:
@@ -281,6 +281,7 @@ def main():
     stride_of_reads = 10
     length_of_reads = 100
     threads = '16'
+    Cnt = 0
     
     if len(params) == 1:
         print(Help_message)
@@ -344,6 +345,14 @@ def main():
         os.system("rm filter.sam")
         
         reference, ref_title = find_most()
+        if ref_title == 0:
+            Cnt += 1
+        if Cnt == 2:
+            print("***NOTE***")
+            print("ALL genes in the dataset have been recruited")
+            os.system("rm -rf Ref/ Idx/ | mv new_data.fa data_remain.fa")
+            return 0
+            
         os.system("rm read_gene")
         file_name = "reference"+str(i+1)+".fa"
         with open("recruited_reference/"+file_name, 'w') as file:
