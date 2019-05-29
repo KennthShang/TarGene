@@ -114,7 +114,7 @@ def find_most():
         print("The number of related reads is: ", common[0][1])
         pos = (int(ref_name)+1)*2-2
         
-        with open('dataset.fa') as R:
+        with open('new_data.fa') as R:
             database = R.readlines()
             R.close()
             
