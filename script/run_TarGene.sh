@@ -18,7 +18,7 @@ if [ -f "recruit.fa" ]; then
 else
    echo "### Build bloom filter"
    mkdir $REF_DIR || { echo "mkdir ${REF_DIR} failed"; exit 1;}
-   if [[" ${flag[*]} " == *"1"*]]; then
+   if [[ " ${tasks[*]} " == *"true"* ]]; then
       bowtie2-build -f ${WORKDIR}/recruit_ref.fa ${REF_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
    else
       bowtie2-build -f $REF_POS ${REF_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
