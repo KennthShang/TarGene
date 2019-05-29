@@ -218,6 +218,30 @@ def reference_remain():
         print("Total gene remained in the dataset is: ", number)
         return number
 
+def rename(filename):
+    with open(filename) as file:
+        database = file.readlines()
+        file.close()
+        text = ""
+        counter = 0
+        Gene = []
+        Title = []
+        for line in database:
+            if line[0] == '>':
+                Title.append(">"+str(counter))
+                counter+=1
+                if text != "":
+                    Gene.append(text)
+                    text=""
+            else:
+                text = text + line[:-1]
+        
+    with open("dataset.fa") as file:
+        for i in range(len(Title)):
+            file.write(Title[i]+'\n')
+            file.write(Gene[i]+'\n')
+        file.close()
+    
 Program_name = """
 
    =========================  RRP  ==========================
@@ -294,9 +318,10 @@ def main():
                 print("Error: Wrong parameters!")
                 return 0
     
+    rename(filename)
     print("Creating reads...")
-    create_reads_first(filename, stride_of_reads, length_of_reads)
-    os.system("mkdir Idx | mkdir Ref | mkdir recruited_reference | cp "+filename+" new_data.fa")
+    create_reads_first("dataset.fa", stride_of_reads, length_of_reads)
+    os.system("mkdir Idx | mkdir Ref | mkdir recruited_reference | cp dataset.fa new_data.fa")
     
     for i in range(num):
         print("Finding the " + str(i+1) + "th reference.")
