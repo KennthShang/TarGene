@@ -11,6 +11,8 @@ source $1
 flag=$RRP_FLAG
 #### end of configuration
 
+mkdir ${WORKDIR}/recruit_reads || { echo "mkdir -p ${WORKDIR}/recruit_reads failed"; exit 1;}
+cd ${WORKDIR}/recruit_reads
 
 ## build bloom filter
 if [ -f "recruit.fa" ]; then
@@ -19,7 +21,7 @@ else
    echo "### Build bloom filter"
    mkdir $REF_DIR || { echo "mkdir ${REF_DIR} failed"; exit 1;}
    if [[ " ${tasks[*]} " == *"true"* ]]; then
-      bowtie2-build -f ${WORKDIR}/recruit_ref.fa ${REF_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
+      bowtie2-build -f ${WORKDIR}/RRP/recruit_ref.fa ${REF_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
    else
       bowtie2-build -f $REF_POS ${REF_DIR}/IDX || { echo "Bowtie2-build failed"; exit 1;}
    fi
