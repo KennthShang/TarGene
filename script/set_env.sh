@@ -11,11 +11,12 @@
 #########################################################
 
 ## THIS SECTION MUST BE MODIFIED FOR YOUR FILE SYSTEM. MUST BE ABSOLUTE PATH
-FASTA_FILE_POS=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/reads.fa
-BASEDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene
-WORKDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data 
-REFERENCE_DATABASE=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa 
-REF_POS=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa 
+## CHOOSE REFERENCE_DATABASE if you want to run rrp else REF_POS
+FASTA_FILE_POS=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/reads.fa                # Reads file
+BASEDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene                                          # Pwd of the TarGene
+WORKDIR=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data                                # Pwd of where you want to run TarGene
+REFERENCE_DATABASE=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa     # reference database file
+REF_POS=/mnt/gs18/scratch/users/yannisun/AMY/TarGene/test_data/hao_database.fa                # reference file
 
 
 
