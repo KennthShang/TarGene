@@ -14,11 +14,18 @@ We provide two methods for installing TarGene. You can directly install these to
 3. [SPAdes](http://cab.spbu.ru/software/spades/)
 
 
-## Installing via conda 
-Noted that all the packages can be found on anaconda.cloud, which means you can easily install them by using conda. You can follow the [Guidance](https://github.com/KennthShang/TarGene/edit/master/README.md) to install step by step. 
+## Installing the required dependencies via conda 
+The easiest way to install these tools is to install anaconda and add anaconda binary to your PATH:
+1. Go to [Anaconda] (https://www.anaconda.com/distribution/). Choose "Linux". Then you see a title named  **Anaconda 2018.12 for Linux InstallerDownload**. Download the .sh file by clicking the **Download** buttons. Both Python 3.7 and 2.7 versions are OK. 
+2. Bash the .sh file and install anaconda to your computer.
+3. Add the anaconda to your PATH. 
+The following is from the FAQ of Anaconda. Conda will not work until you add the PATH manually. To add the PATH manually, open a text editor and open the file .bashrc or .bash_profile from your home directory. Add the line `export PATH="/<path to anaconda>/bin:$PATH" ` . NOTE: Replace \<path-to-anaconda>\ with the actual path of your installed anaconda file.
 
-## Installation without using conda
-If you would like to install all the programs without using conda, please still take a look at the [Guaidance](https://github.com/chjiao/TAR-VIR/blob/master/Guidance%20for%20Installing%20PEHaplo%20and%20TAR-VIR.md), which contains a running example.
+Then you can install these tools using the commands shown below:
+```
+conda install -c bioconda samtools bowtie2 spades
+```
+## Installing TarGene
 
 To download the source code:   
 git clone https://github.com/KennthShang/TarGene.git
