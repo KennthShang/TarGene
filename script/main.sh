@@ -19,8 +19,8 @@ source $ENVFILE
 mkdir -p ${WORKDIR}/${NAME} || { echo "mkdir -p ${WORKDIR}/${NAME} failed"; exit 1;}
 
 ## Running RRP
-if [[ " ${tasks[*]} " == *"rrp"* ]]; then
-    bash $BASEDIR/script/run_Recruit_Reference_Program.sh $ENVFILE || { exit 1; }
+if [[ " ${tasks[*]} " == *"crp"* ]]; then
+    bash $BASEDIR/script/run_Concentrate_Reference_Program.sh $ENVFILE || { exit 1; }
 fi
 
 ## Running TarGene
