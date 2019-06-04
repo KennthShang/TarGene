@@ -52,7 +52,7 @@ bash ../script/main.sh my_env.sh "rrp TarGene SPAdes"
 You can also run the three steps separately, or choose the program you want to run.
 ```
 
-bash ../script/main.sh my_env.sh "rrp"
+bash ../script/main.sh my_env.sh "crp"
 bash ../script/main.sh my_env.sh "TarGene"
 bash ../script/main.sh my_env.sh "SPAdes"
 
