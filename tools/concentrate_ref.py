@@ -242,7 +242,7 @@ def rename(filename):
 Program_name = """
 
    =========================  RRP  ==========================
-                    Recruit Refernece Program
+                    Concentrate Refernece Program
                             V1.1.0
           Contact: Kenneth Shang <kenneth.shang@foxmail.com>
    ----------------------------------------------------------
@@ -253,12 +253,12 @@ Help_message = """
 
 ========================  USAGE  =========================
    
-  python3 recruit_ref.py [options] -n <reference number> -s <strides> -l <length>
+  python3 concentrate_ref.py [options] -n <reference number> -s <strides> -l <length>
    
 ======================== PARAMETERS ======================
    
   -h   print out usage information
-  -n   total number of reference you want to recruit from the dataset 
+  -n   total number of reference you want to concentrate from the dataset 
   -s   strides for creating reads from the dataset
   -l   length of the reads that you want to use to creat reads from the dataset
   -t   number of threads that you want to use
@@ -267,11 +267,11 @@ Help_message = """
 
    The output of RRP are as follow:
        data_remain.fa              references that remained.
-       recruited_reference    folder of references recruited.
+       concentrate_reference    folder of references recruited.
 
 ======================== EXAMPLE ==========================
    
-  python3 recruit_ref.py -n 10 -s 10 -l 100 -f amo_database.fa
+  python3 concentrate_ref.py -n 10 -s 10 -l 100 -f amo_database.fa
 
 """
 
@@ -319,7 +319,7 @@ def main():
     rename(filename)
     print("Creating reads...")
     create_reads_first("dataset.fa", stride_of_reads, length_of_reads)
-    os.system("mkdir Idx | mkdir Ref | mkdir recruited_reference | cp dataset.fa new_data.fa")
+    os.system("mkdir Idx | mkdir Ref | mkdir concentrate_reference | cp dataset.fa new_data.fa")
     
     for i in range(num):
         print("Finding the " + str(i+1) + "th reference.")
@@ -337,7 +337,7 @@ def main():
         print("Reads mapping complete!")
         
         
-        print("================== Recruiting reference ====================")
+        print("================== concentrating reference ====================")
         remove()
         os.system("rm mapped.sam")
         
@@ -349,21 +349,21 @@ def main():
             Cnt += 1
         if Cnt == 2:
             print("***NOTE***")
-            print("ALL genes in the dataset have been recruited")
+            print("ALL genes in the dataset have been concentrated")
             os.system("rm -rf Ref/ Idx/ | mv new_data.fa data_remain.fa")
             os.system("rm LogFile read_gene")
             return 0
             
         os.system("rm read_gene")
         file_name = "reference"+str(i+1)+".fa"
-        with open("recruited_reference/"+file_name, 'w') as file:
+        with open("concentrate_reference/"+file_name, 'w') as file:
             file.write(reference)
             print("new reference gene saved!")
             file.close()
             
         print("================== Creating new sub-dataset ================")
         os.system("rm LogFile")
-        os.system("bowtie2-build -f recruited_reference/"+ file_name +" Ref/IDX >LogFile" )
+        os.system("bowtie2-build -f concentrate_reference/"+ file_name +" Ref/IDX >LogFile" )
         os.system("bowtie2 -x Ref/IDX -p "+ threads +" -f fake_reads.fa -S result.sam")
         os.system("samtools view -F 4 result.sam >mapped.sam")
         os.system("rm Ref/* | rm result.sam | rm fake_reads.fa")
@@ -375,7 +375,7 @@ def main():
         remain = reference_remain()
         if remain == 0:
             print("***NOTE***")
-            print("ALL genes in the dataset have been recruited")
+            print("ALL genes in the dataset have been concentrate")
             os.system("rm -rf Ref/ Idx/ | mv new_data.fa data_remain.fa")
             os.system("rm LogFile")
             return 0
