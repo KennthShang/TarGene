@@ -17,7 +17,7 @@ cd ${WORKDIR}/${NAME}/RRP
 if [ -f "concentrate_ref.fa" ]; then
    echo "File recruit_ref.fa exists, SKIPPING RRP (manually delete if you want to rerun)" 
 else
-   python3 ${BASEDIR}/tools/recruit_ref.py -n $NUM_RECRUIT -s $STRIDE -l $LENGTH -f $REFERENCE_DATABASE -t $THREAD_NUM || { echo "Recruit Reference Program failed"; exit 1;}
+   python3 ${BASEDIR}/tools/concentrate_ref.py -n $NUM_RECRUIT -s $STRIDE -l $LENGTH -f $REFERENCE_DATABASE -t $THREAD_NUM || { echo "Recruit Reference Program failed"; exit 1;}
    if [ -f "data_remain.fa" ]; then
       cat data_remain.fa concentrate_reference/* > concentrate_ref.fa 
    else
