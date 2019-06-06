@@ -46,7 +46,7 @@ The following example commands will attempt to run all the three steps "rrp", "T
 cd test_data
 cp ../script/set_env.sh my_env.sh
 # edit the parameters in my_env.sh 
-bash ../script/main.sh my_env.sh "rrp TarGene SPAdes"
+bash ../script/main.sh my_env.sh "crp TarGene SPAdes"
 ```
 
 You can also run the three steps separately, or choose the program you want to run.
