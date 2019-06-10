@@ -111,7 +111,7 @@ def find_most():
         ref_name = common[0][0]
         print("****NOTE****")
         print("The most valuable reference in this loop is: ", ref_name)
-        print("The number of related reads is: ", common[0][1])
+        print("The number of related reference is: ", common[0][1])
         pos = (int(ref_name)+1)*2-2
         
         with open('dataset.fa') as R:
